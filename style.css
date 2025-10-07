@@ -1,146 +1,46 @@
 /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f8f6fc;
-  color: #333;
-  line-height: 1.6;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: "Segoe UI", sans-serif; background:#f8f6fc; color:#333; line-height:1.6; }
 
 /* Header */
-header {
-  background: #5e17eb; /* Roxo principal */
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
+header { background:#5e17eb; color:white; text-align:center; padding:30px 20px; position:relative; }
+header h1 { font-size:2.5rem; margin-bottom:10px; }
+
+/* 👇 agora a descrição é roxinha */
+.descricao-site { 
+  font-size:1.1rem; 
+  max-width:700px; 
+  margin:0 auto; 
+  color:#d6c2f5; /* lilás para diferenciar do branco */
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
+#btn-carrinho { background:#3c096c; color:white; border:none; padding:8px 15px; border-radius:6px; cursor:pointer; margin-top:15px; }
+#btn-carrinho:hover { background:#5e17eb; }
 
-.descricao-site {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
-}
+#carrinho-container { background:#f4f4f4; color:#333; border:1px solid #ddd; border-radius:8px; padding:15px; max-width:300px; position:absolute; right:20px; top:100px; z-index:1000; }
+#carrinho-container ul { list-style:none; padding:0; }
+#carrinho-container li { display:flex; justify-content:space-between; margin-bottom:8px; }
+#carrinho-container button { background:#5e17eb; border:none; color:white; cursor:pointer; border-radius:5px; padding:4px 8px; font-size:0.8rem; }
+#carrinho-container button:hover { background:#3c096c; }
 
-/* Seção de produtos */
-.titulo-secao {
-  text-align: center;
-  margin: 40px 0 20px;
-  color: #3c096c; /* Roxo escuro */
-  font-size: 2rem;
-}
+/* Produtos */
+#produtos-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; padding:20px 40px; }
+.produto { background:white; border-radius:12px; overflow:hidden; box-shadow:0px 4px 8px rgba(0,0,0,0.1); transition:transform 0.2s ease, box-shadow 0.2s ease; }
+.produto:hover { transform:scale(1.03); box-shadow:0px 8px 16px rgba(0,0,0,0.2); }
+.produto img { width:100%; object-fit:cover; }
+.produto h2 { font-size:1.3rem; margin:15px; color:#5e17eb; }
+.produto p { margin:0 15px 10px; font-size:0.95rem; }
+.produto .preco { font-size:1.2rem; font-weight:bold; color:#e63946; margin:10px 15px 20px; }
+.btn-comprar { background:#5e17eb; color:white; border:none; padding:8px 15px; border-radius:6px; cursor:pointer; margin:10px 15px; }
+.btn-comprar:disabled { background:#ccc; cursor:not-allowed; }
 
-#produtos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 20px 40px;
-}
+/* Estoque */
+.estoque { font-size:0.9rem; color:#444; margin:5px 15px 10px; }
+.estoque.baixo { color:#e63946; font-weight:bold; }
+.estoque.esgotado { color:#a8a8a8; font-weight:bold; }
 
-.produto {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.produto:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-}
-
-/* padrão*/
-.produto img {
-  width: 100%;
-  object-fit: cover;
-}
-
-/*Kit de banho (index 0) */
-.produto-0 img {
-    height: 200px;
-}
-
-/* Sabonete intimo (index 1) */
-.produto-1 img {
-    height: 500xp;
-}
-/* Demaquilante (index 2) */
-.produto-2 img {
-    height: 500px;
-}
-
-/* Esfoliante Corporal (index 3) */
-.produto-3 img {
-    height: 500px;
-}
-
-/* Sabonete facial detox (index 4) */
-.produto-4 img {
-  height: 400px;
-}
-
-/* Mascara facial detox (index 5) */
-.produto-5 img {
-  height: 400px;
-
-}
-/* Serum antirrugas (index 6) */
-.produto-6 img {
-  height: 400px;
-}
-
-/* Skincare (index 7) */
-.produto-7 img {
-  height: 400px;
-}
-
-/* Kit de skicare (index 8) */
-.produto-8 img {
-  height: 300px;
-}
-
-/* Óleo Corporal (index 9) */
-.produto-9 img {
-  height: 500px;
-}
-
-.produto h2 {
-  font-size: 1.3rem;
-  margin: 15px;
-  color: #5e17eb;
-}
-
-.produto p {
-  margin: 0 15px 10px;
-  font-size: 0.95rem;
-}
-
-.produto .preco {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #e63946;
-  margin: 10px 15px 20px;
-}
-
-/* Footer */
-footer {
-  background: #3c096c; /* Roxo escuro */
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-footer p {
-  margin: 5px 0;
-}
+/* Notificações */
+#notificacoes { position:fixed; bottom:20px; right:20px; z-index:10000; }
+.notificacao { background:#5e17eb; color:white; padding:12px 20px; border-radius:8px; margin-top:10px; min-width:200px; box-shadow:0 4px 8px rgba(0,0,0,0.2); opacity:0; transform:translateX(100%); transition:opacity 0.5s, transform 0.5s; }
+.notificacao.show { opacity:1; transform:translateX(0); }
+.notificacao.baixo { background:#e63946; }

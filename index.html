@@ -1,116 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>DermaPlus - Loja de Cosméticos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DermaPlus - Loja de Cuidados com a Pele</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("SUA_PUBLIC_KEY_AQUI");
+  </script>
 </head>
 <body>
 
   <header>
     <h1>DermaPlus</h1>
-    <p class="descricao-site">Beleza e tratamento em um só lugar. Descubra produtos dermatológicos de alta qualidade para sua rotina de autocuidado.</p>
+    <p class="descricao-site">Cuidando da sua pele com o toque de quem entende de beleza e bem-estar.</p>
+    <button id="btn-carrinho">🛒 Carrinho <span id="contador-carrinho">0</span></button>
   </header>
 
-  <main>
-    <h2 class="titulo-secao">Nossos Produtos</h2>
-    <div id="produtos-container"></div>
-  </main>
+  <!-- Login de administrador -->
+  <div id="admin-login" class="login-container">
+    <h2>Acesso Administrativo</h2>
+    <input type="email" id="admin-email" placeholder="Seu Gmail">
+    <input type="password" id="admin-senha" placeholder="Sua senha">
+    <button id="btn-login">Entrar</button>
+    <p id="login-status"></p>
+  </div>
 
-  <footer>
-    <p>Descrição:DermaPlus – Cosméticos Dermatológicos
- Proposta de Valor
+  <!-- Carrinho -->
+  <div id="carrinho-container" style="display:none;">
+    <h3>Produtos no Carrinho</h3>
+    <ul id="lista-carrinho"></ul>
+  </div>
 
-A DermaPlus é uma empresa de cosméticos dermatológicos que combina beleza e tratamento clínico, oferecendo produtos de alta performance, cientificamente testados, indicados por médicos e acessíveis ao consumidor final.
+  <!-- Produtos -->
+  <main id="produtos-container"></main>
 
-Seu diferencial é atuar como uma ponte entre estética e saúde, trazendo confiança científica e resultados estéticos comprovados.
-
- Público-Alvo
-
-Pacientes com problemas de pele (acne, melasma, rosácea, psoríase).
-
-Pessoas preocupadas com envelhecimento precoce e autocuidado saudável.
-
-Clínicas dermatológicas e estéticas.
-
-Farmácias e e-commerces especializados em dermocosméticos.
-
-Planos de saúde que desejam incluir produtos preventivos em seus programas.
-
- Diferenciais Competitivos
-
-Aprovação dermatológica: Produtos desenvolvidos em parceria com laboratórios e testados clinicamente.
-
-Linha personalizada: Fórmulas adaptadas para diferentes tipos de pele (seca, oleosa, sensível, madura).
-
-Inovação: Uso de biotecnologia e nanotecnologia para maior absorção dos ativos.
-
-Acesso via planos de saúde: Pacientes podem receber descontos ou cobertura parcial.
-
-Educação em saúde: Palestras e workshops para médicos e pacientes.
-
- Estrutura e Setores
- Recursos Humanos (RH)
-
-Contratação de químicos, farmacêuticos e dermatologistas consultores.
-
-Programas de capacitação contínua em inovação cosmética.
-
-Políticas de incentivo para pesquisa científica interna.
-
- Marketing
-
-Campanhas digitais em redes sociais com foco em credibilidade científica.
-
-Parcerias com influenciadores médicos e especialistas (ex.: dermatologistas no YouTube/Instagram).
-
-Realização de palestras e simpósios em hospitais e universidades.
-
-Produção de conteúdos educativos: blog, e-books e vídeos sobre cuidados dermatológicos.
-
- Jurídico
-
-Registro de fórmulas inovadoras e pedidos de patente.
-
-Conformidade regulatória com ANVISA e normas internacionais.
-
-Elaboração de contratos com planos de saúde e clínicas.
-
-Proteção da marca contra falsificações.
-
- Vendas
-
-Canais B2B (Business to Business): Consultórios dermatológicos, clínicas estéticas, farmácias.
-
-Canais B2C (Business to Consumer): E-commerce próprio com testes virtuais de pele.
-
-Programa de assinatura mensal, onde clientes recebem kits personalizados.
-
-Equipe de representantes comerciais especializados em saúde e estética.
-
- Finanças
-
-Modelos de parceria com planos de saúde, para subsidiar parte dos custos.
-
-Captação de investidores para pesquisa e desenvolvimento (P&D).
-
-Estratégia de precificação premium, mas com versões acessíveis para aumentar o alcance.
-
-Controle rigoroso de custos laboratoriais e importação de insumos.
-
- Logística
-
-Transporte especializado com controle de temperatura para preservar fórmulas sensíveis.
-
-Armazenamento em centros de distribuição climatizados.
-
-Sistema de rastreio para consultórios e clientes finais.
-
-Política de devolução segura para produtos de uso clínico</p>
-    <p>&copy; 2025 DermaPlus - Todos os direitos reservados.</p>
-    <p>Contato: contato@dermaplus.com | (96) 4002-8022</p>
-  </footer>
-  <img src="img/produtos/produtos.png">
+  <!-- Notificações -->
+  <div id="notificacoes"></div>
 
   <script src="script.js"></script>
 </body>
